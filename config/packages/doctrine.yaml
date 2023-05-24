@@ -1,0 +1,10 @@
+doctrine:
+  dbal:
+    # ...
+    driver: pdo_mysql
+    host: mysql
+    port: 3306
+    dbname: app
+    user: root
+    password: root
+    # ...
