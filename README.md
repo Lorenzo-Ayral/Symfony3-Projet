@@ -2,34 +2,34 @@
 
 ## Tables :
 
-- Table "Utilisateurs" :
-    id (clé primaire)
-    nom
-    prénom
-    email
-    mot de passe (crypté)
-    date de création
-    dernière connexion
+Table "users" :
+id (primary key, integer)
+name (string)
+first_name (string)
+email (string)
+password (encrypted, string)
+created_at (datetime)
+last_login (datetime)
 
-Table "Publications" :
-    id (clé primaire)
-    utilisateur_id (clé étrangère vers la table "Utilisateurs")
-    contenu
-    date de création
+Table "publications" :
+id (primary key, integer)
+user_id (foreign key to table "users", integer)
+content (text)
+created_at (datetime)
 
-Table "Amis" :
-    id (clé primaire)
-    utilisateur_id (clé étrangère vers la table "Utilisateurs")
-    ami_id (clé étrangère vers la table "Utilisateurs")
+Table "friends" :
+id (primary key, integer)
+user_id (foreign key to table "users", integer)
+friend_id (foreign key to table "users", integer)
 
-Table "Commentaires" :
-    id (clé primaire)
-    utilisateur_id (clé étrangère vers la table "Utilisateurs")
-    publication_id (clé étrangère vers la table "Publications")
-    contenu
-    date de création
+Table "comments" :
+id (primary key, integer)
+user_id (foreign key to table "users", integer)
+publication_id (foreign key to table "publications", integer)
+content (text)
+created_at (datetime)
 
-Table "Likes" :
-    id (clé primaire)
-    utilisateur_id (clé étrangère vers la table "Utilisateurs")
-    publication_id (clé étrangère vers la table "Publications")
+Table "likes" :
+id (primary key, integer)
+user_id (foreign key to table "users", integer)
+publication_id (foreign key to table "publications", integer)
