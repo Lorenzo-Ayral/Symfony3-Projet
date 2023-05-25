@@ -71,7 +71,7 @@ class Users
         return $this;
     }
 
-    public function getFirst_Name(): ?string
+    public function getFirstName(): ?string
     {
         return $this->first_name;
     }
