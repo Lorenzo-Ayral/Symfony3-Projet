@@ -71,10 +71,11 @@ class Users
         return $this;
     }
 
-    public function getFirstName(): ?string
+    public function getFirst_Name(): ?string
     {
         return $this->first_name;
     }
+
 
     public function setFirstName(string $first_name): self
     {

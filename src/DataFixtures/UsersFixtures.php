@@ -3,10 +3,11 @@
 namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Users;
 
-class UsersFixtures extends Fixture
+class UsersFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -23,5 +24,9 @@ class UsersFixtures extends Fixture
 
         // Exécutez les modifications dans la base de données
         $manager->flush();
+    }
+    public function getOrder(): int
+    {
+        return 1;
     }
 }

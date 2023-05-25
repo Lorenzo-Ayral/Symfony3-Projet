@@ -4,10 +4,11 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use App\Entity\Publications;
 use App\Entity\Users;
 
-class PublicationsFixtures extends Fixture
+class PublicationsFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -15,7 +16,7 @@ class PublicationsFixtures extends Fixture
 
         if ($users) {
             $publications = new Publications();
-            $publications->setUserId($users->getId());
+            $publications->setUserID($users);
             $publications->setContent('Trop cool ce site');
             $publications->setCreatedAt(new \DateTimeImmutable());
 
@@ -25,5 +26,9 @@ class PublicationsFixtures extends Fixture
             // Exécutez les modifications dans la base de données
             $manager->flush();
         }
+    }
+    public function getOrder(): int
+    {
+        return 2;
     }
 }
